@@ -194,7 +194,6 @@ After you finish your work, you can simply type 'quit' to end your interactive j
 Remember: interactive jobs will stop once you log out from the login node, keep the window open before finishing your job   
 
 
-
 ------------------------------------------------------------------------------
 #### Some tips 
 
@@ -238,6 +237,11 @@ You can find packages you install in this folder.
 
 #### Why my job not run (both submitting job and interactive job)
 
+When you find your job is not running, the common reason is that your job is waiting in the queue for available resources. If the job status shows that the usage of gdata is over the limit. You may use the following command line to remove all the useless packages and files to spare space. It is a good habit to clean the gdata regular.
+
+'''
+conda clean --all
+'''
 
 
 #### How to transfer files between remote servers or local computer
