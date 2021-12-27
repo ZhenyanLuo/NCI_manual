@@ -15,7 +15,7 @@ You should get a username after providing your information, the username should 
 
 #### Step 2 Login
 
-Login by using mobaxterm or wsl on window11 (VPN free) 
+Login by using mobaxterm or wsl on window11 (VPN free) , Terminal for Mac user (Applications>Utilities>Terminal), termminal for Unix/Linux 
 
 ```
 ssh {username}@gadi.nci.org.au
