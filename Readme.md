@@ -47,7 +47,7 @@ quota -s -f /home
 
 ##### About storage
 
-Gadi has two places to store files, gdata and scratch, available space of /gdata is 3TB, /scratch is 1TB. In principle, files stored in /scratch 
+Gadi has two places to store files, gdata and scratch, available space of /gdata is 3TB, /scratch is 1TB. In principle, files stored in /scratch is not permanent.
 
 
 You can check space already used by your project:
@@ -267,6 +267,12 @@ For small size files (smaller than around 600 Gb) which will take less than 30 m
 
 #### About Singularity 
 
+You might want to read this first: https://sylabs.io/guides/3.0/user-guide/build_a_container.html
+
+First, you should load the singularity module on login node or submit a interactive job
+```
+module load singularity
+```
 NCI not allow user to make writable singularity container by using fake-root or sandbox, you can't use mysql.
 
 Singularity image can be big, some files will automatelly save in ./singularity (your home path), which may make you get a error like:
@@ -281,4 +287,42 @@ mkdir -p /scratch/{your project id}/{your username}/.singularity
 ln -s /scratch/{your project id}/{your username}/.singularity ${HOME}/.singularity
 ```
 
-Then you should be able to download singularity image by using 'singularity pull'
+Then you should be able to download singularity image by using 'singularity pull', you can download the image from dockerhub, container library...
+
+For example, download a docker image in a directory (specify in --dir option)
+
+```
+singularity pull --dir {your directory} docker://{something}
+```
+
+After it finish download, you will find a .sif file in your folder, this is the singularity image. 
+
+Normally, if you have root permission, you can use
+
+```
+sudo singularity build --sandbox {sandbox name you like} {sif file of singularity image}
+```
+This should allow you to build a writable singularity container.
+
+Or you can use the fake-root option:
+```
+singularity build --fakeroot {sandbox name you like} {sif file of singularity image}
+```
+
+However, NCI not allow to build writable container.
+
+To solve this problem, we can copy the file from the image then bind these folders to the folder in the singularity image.
+
+
+
+```
+
+
+```
+
+
+
+After setting all the directories you want to blind, you can run the singularity image with
+```
+singularity shell {your sif file}
+```
