@@ -11,7 +11,7 @@ You should register for a new NCI account
 
 https://my.nci.org.au/mancini/signup/0
 
-You should get a username after providing your information, the username should be consisted of two lower case characters and four numbers.
+You should recieve a username after providing your information, the username should be consisted of two lower case characters and four numbers.
 
 #### Step 2 Login
 
