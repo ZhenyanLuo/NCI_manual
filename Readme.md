@@ -316,13 +316,36 @@ To solve this problem, we can copy the file from the image then bind these folde
 
 
 ```
-
+singularity  exec  {image sif file} cp -r {folder you wants to copy} {absolute path you want to copy the file in}
 
 ```
+Then bind this writable folder to the folder in container
 
+For the data you wants to use as input file, you can also place these files in a folder and bind to the container (notice: the folder made by you neccessary to exist in the container)
 
+You have two different methods can bind folders to container
 
-After setting all the directories you want to blind, you can run the singularity image with
+Method 1:
+
+Bind the folder (data) on host to /mnt folder in the container
+
+```
+singularity exec --bind /data:/mnt {image sif file} ls /mnt
+```
+To bind multiple folder
+
+```
+singularity shell --bind /opt,/data:/mnt {image sif file}
+```
+Method 2:
+
+Set environment variable
+
+```
+export SINGULARITY_BIND="$HOME, {your folder on host}:{folder in container}"
+```
+
+After setting all the directories you want to blind in one of these methods, you can run the singularity image with
 ```
 singularity shell {your sif file}
 ```
