@@ -132,6 +132,12 @@ module unload {module}/{module version}
 
 ```
 
+If you installed your modules in conda enviornment, you can use following codes to replcae 'modele load' and its relevant codes:
+
+```
+source /home/106/{user_id}/miniconda3/etc/profile.d/conda.sh
+conda activate {env}
+```
 
 #### Step 5 Submit your job
 
