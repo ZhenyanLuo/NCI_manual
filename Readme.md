@@ -250,12 +250,28 @@ You can find packages you install in this folder.
 
 
 #### Why my job not run (both submitting job and interactive job)
+First, have a look at not running reason with following code, the comments under the JobID gives reason:
 
-When you find your job is not running, the common reason is that your job is waiting in the queue for available resources. If the job status shows that the usage of gdata is over the limit. You may use the following command line to remove all the useless packages and files to spare space. It is a good habit to clean the gdata regular.
+```
+qstat -u $USER -Esw
+```
 
-'''
+The common reason is that your job is waiting in the queue for available resources such as cups, mem, Sus and licenses. The solution is waiting for a while or ask scheme manager for more Sus. You can check the licenses waiting queue on <https://usersupport.nci.org.au/license-status.html> .The comments for reasons can be like:
+
+```
+Not Running: Insufficient amount of resource: ncpus
+Not Running: Insufficient amount of resource: mem
+Not Running: Job would conflict with reservation or top job
+Not Running: PBS Error: Could not reserve allocation from project “<prj>” to run job.
+Not Running: PBS Error: Waiting for software licenses
+```
+
+If the job status shows that the usage of gdata is over the limit. You may use the following command line to remove all the useless packages and files to spare space. Or move the unused files in gdata to other places. It is a good habit to clean the gdata regular.
+
+```
 conda clean --all
-'''
+```
+
 
 
 #### How to transfer files between remote servers or local computer
