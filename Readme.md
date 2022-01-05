@@ -164,6 +164,14 @@ qstat -u {your user id} -sw
 
 ```
 
+If you want to delete job:
+
+```
+qdel {job_id}
+```
+
+A quick look at PBS commands : https://www.cqu.edu.au/eresearch/high-performance-computing/hpc-user-guides-and-faqs/pbs-commands
+
 Different status of the job status:
 
 Q: waiting
