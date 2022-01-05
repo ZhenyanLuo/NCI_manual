@@ -250,7 +250,7 @@ You can find packages you install in this folder.
 
 
 #### Why my job not run (both submitting job and interactive job)
-First, have a look at not running reason with following code, the comments under the JobID gives reason:
+First, run the following code to have a look at not running reason with following code, the comments under the JobID gives reason:
 
 ```
 qstat -u $USER -Esw
@@ -266,13 +266,17 @@ Not Running: PBS Error: Could not reserve allocation from project “<prj>” to
 Not Running: PBS Error: Waiting for software licenses
 ```
 
-If the job status shows that the usage of gdata is over the limit. You may use the following command line to remove all the useless packages and files to spare space. Or move the unused files in gdata to other places. It is a good habit to clean the gdata regular.
+If the comment shows that the usage of gdata is over the limit. You may use the following command line to remove all the useless packages and files to spare space. Or move the unused files in gdata to other places. It is a good habit to clean the gdata regularly.
 
 ```
 conda clean --all
 ```
 
+If the job limit wall time get into a scheduled downtime, you need to reduce the wall time or run the job after the downtime, the comment will be like:
 
+```
+Not Running: Job would cross dedicated time boundary
+```
 
 #### How to transfer files between remote servers or local computer
 
