@@ -249,7 +249,7 @@ You can find packages you install in this folder.
 
 
 
-#### Why my job not run (both submitting job and interactive job)
+#### Why my job not running (both submitting job and interactive job)
 First, run the following code to have a look at not running reason with following code, the comments under the JobID gives reason:
 
 ```
@@ -278,6 +278,11 @@ If the job limit wall time get into a scheduled downtime, you need to reduce the
 Not Running: Job would cross dedicated time boundary
 ```
 
+If the node that your job runs on got issues the comment will be like as following, if the job does not run in the next 10 minutes, you need to contact NCI for solution.
+
+```
+Not Running: PBS Error: Execution server rejected request
+```
 
 
 #### How to transfer files between remote servers or local computer
