@@ -284,6 +284,11 @@ If the node that your job runs on got issues the comment will be like as followi
 Not Running: PBS Error: Execution server rejected request
 ```
 
+If the jobs has too many failed attempts to start, the comment will appear as following. It can be something wrong in the submitted script or the job was sent to failed node. You need to check your script or contact NCI for help.
+
+```
+job held, too many failed attempts to run
+```
 
 #### How to transfer files between remote servers or local computer
 
