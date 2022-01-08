@@ -292,6 +292,32 @@ job held, too many failed attempts to run
 
 #### How to transfer files between remote servers or local computer
 
+It is recommanded to use rsync rather than scp because rsync allows to start again from the last broken point. 
+```
+# copy local files to remote server, your terminal should be in local computer.
+rsync -avzh /local/file/path  {user}@{remote_host}:/remote/file/path 
+# for example:
+rsync -avzh /Users/luoziheng/Desktop/research_year/project/script zl4459@gadi-dm.nci.org.au:/scratch/xf3/zl4459
+
+# copy remote files to local computer, your terminal should be in local computer.
+rsync -avzh {user}@{remote_host}:/remote/file/path /local/file/path
+# for example:
+rsync -avzh zl4459@gadi-dm.nci.org.au:/scratch/xf3/zl4459/snake /Users/luoziheng/Desktop/research_year/project
+
+```
+
+```
+# copy local files to remote server, your terminal should be in local computer.
+scp -r /local/file/path  {user}@{remote_host}:/remote/file/path 
+# for example:
+scp -r /Users/luoziheng/Desktop/research_year/project/script zl4459@gadi-dm.nci.org.au:/scratch/xf3/zl4459
+
+# copy remote files to local computer, your terminal should be in local computer.
+scp -r {user}@{remote_host}:/remote/file/path /local/file/path
+# for example:
+scp -r zl4459@gadi-dm.nci.org.au:/scratch/xf3/zl4459/snake /Users/luoziheng/Desktop/research_year/project
+```
+
 
 
 #### Why I can't transfer large files to NCI
