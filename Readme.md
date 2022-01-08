@@ -292,7 +292,7 @@ job held, too many failed attempts to run
 
 #### How to transfer files between remote servers or local computer
 
-It is recommanded to use rsync rather than scp because rsync allows to start again from the last broken point. 
+It is recommanded to use rsync rather than scp because rsync allows to start again from the last broken point. If you want to       ```
 ```
 # copy local files to remote server, your terminal should be in local computer.
 rsync -avzh /local/file/path  {user}@{remote_host}:/remote/file/path 
@@ -303,6 +303,7 @@ rsync -avzh /Users/luoziheng/Desktop/research_year/project/script zl4459@gadi-dm
 rsync -avzh {user}@{remote_host}:/remote/file/path /local/file/path
 # for example:
 rsync -avzh zl4459@gadi-dm.nci.org.au:/scratch/xf3/zl4459/snake /Users/luoziheng/Desktop/research_year/project
+
 
 ```
 
