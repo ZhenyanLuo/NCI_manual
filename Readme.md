@@ -481,4 +481,4 @@ cat client_cmd
 ssh -N -L 8321:gadi-cpu-clx-0526.gadi.nci.org.au:8321 zl4459@gadi.nci.org.au  
 ssh -N -L 8757:gadi-cpu-clx-0526.gadi.nci.org.au:8757 zl4459@gadi.nci.org.au 
 ```
-Copy one of the ssh cmd into your local terminal and type your gadi login password. The port number can be found in ssh cmd, for example, the port number is 8321 in the first ssh cmd shonwn above. Then type 'local:{port number}' into your local browser and type Jupyter password. The jupyter lab will be open
+Copy one of the ssh cmd into your local terminal and type your gadi login password. The port number can be found in ssh cmd, for example, the port number is 8321 in the first ssh cmd shonwn above. Then type 'localhost:{port number}' into your local browser and type Jupyter password. The jupyter lab will be open
