@@ -433,3 +433,52 @@ After setting all the directories you want to blind in one of these methods, you
 ```
 singularity shell {your sif file}
 ```
+
+### Use jupyter lab in Gadi
+
+First, configure Jupiter account in login node of gadi:
+
+```
+module load pangeo/2021.01
+jupyter server --generate-config
+jupyter server password
+```
+
+Then, writer and submit a Pango job:
+
+create a script:
+```
+nano run_ipynb_job.sh
+```
+
+Here is the script of job (run_ipynb_job.sh):
+```
+#!/bin/bash
+#PBS -N pangeo_test
+#PBS -P <project code>
+#PBS -q normal
+#PBS -l walltime=5:00:00
+#PBS -l ncpus=96
+#PBS -l mem=384GB
+#PBS -l jobfs=100GB
+#PBS -l storage=scratch/<project code>+gdata/<project code>
+module load pangeo/2021.01
+pangeo.ini.all.sh
+sleep infinity
+
+```
+Then submit the job:
+```
+qsub run_ipynb_job.sh
+```
+
+There will be a file called 'client_cmd' in the current dirctory. Open the file and find ssh cmd like following:
+```
+# open the file
+cat client_cmd
+
+# There are two ssh cmd like following:
+ssh -N -L 8321:gadi-cpu-clx-0526.gadi.nci.org.au:8321 zl4459@gadi.nci.org.au  
+ssh -N -L 8757:gadi-cpu-clx-0526.gadi.nci.org.au:8757 zl4459@gadi.nci.org.au 
+```
+Copy one of the ssh cmd into your local terminal and type your gadi login password. The port number can be found in ssh cmd, for example, the port number is 8321 in the first ssh cmd shonwn above. Then type 'local:{port number}' into your local browser and type Jupyter password. The jupyter lab will be open
