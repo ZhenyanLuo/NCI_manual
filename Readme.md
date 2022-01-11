@@ -299,12 +299,12 @@ rsync:
 # copy local files to remote server, your terminal should be in local computer.
 rsync -avzh /local/file/path  {user}@{remote_host}:/remote/file/path 
 # for example:
-rsync -avzh /Users/luoziheng/Desktop/research_year/project/script zl4459@gadi-dm.nci.org.au:/scratch/xf3/zl4459
+rsync -avzh /Users/XXXXX/Desktop/research/project/script XX1234@gadi-dm.nci.org.au:/scratch/XX1/XX1234
 
 # copy remote files to local computer, your terminal should be in local computer.
 rsync -avzh {user}@{remote_host}:/remote/file/path /local/file/path
 # for example:
-rsync -avzh zl4459@gadi-dm.nci.org.au:/scratch/xf3/zl4459/snake /Users/luoziheng/Desktop/research_year/project
+rsync -avzh XX1234@gadi-dm.nci.org.au:/scratch/XX1/XX1234/code /Users/XXXXX/Desktop/research/project
 
 
 ```
@@ -314,21 +314,21 @@ scp:
 # copy local files to remote server, your terminal should be in local computer.
 scp -r /local/file/path  {user}@{remote_host}:/remote/file/path 
 # for example:
-scp -r /Users/luoziheng/Desktop/research_year/project/script zl4459@gadi-dm.nci.org.au:/scratch/xf3/zl4459
+scp -r /Users/XXXXX/Desktop/research/project/ XX1234@gadi-dm.nci.org.au:/scratch/XX1/XX1234
 
 # copy remote files to local computer, your terminal should be in local computer.
 scp -r {user}@{remote_host}:/remote/file/path /local/file/path
 # for example:
-scp -r zl4459@gadi-dm.nci.org.au:/scratch/xf3/zl4459/snake /Users/luoziheng/Desktop/research_year/project
+scp -r XX1234@gadi-dm.nci.org.au:/scratch/XX1/XX1234/project /Users/XXXXX/Desktop/research/
 ```
 If you want to transfer files between two servers, you may login the destination server first, for example, transferring files from Gadi to lab computer:
 
 ```
 # login lab computer 
-ssh roy@130.56.33.39
+ssh XXXX@130.56.33.39
 
 # transfer files from Gadi to lab computer, '.' represent the current directory.
-rsync -avzh zl4459@gadi-dm.nci.org.au:/scratch/xf3/zl4459/snake .
+rsync -avzh XX1234@gadi-dm.nci.org.au:/scratch/XX1/XX1234/project .
 ```
 
 
