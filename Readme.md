@@ -338,13 +338,6 @@ Details about transfering files to or from NCI:
 
 No-interactive job will be killed after 30 minutes, to transfer large files, you can submit a PBS job for transfering.   
 
-For small size files (smaller than around 600 Gb) which will take less than 30 minutes to transfer
-
-
-
-
-#### 
-
 
 
 #### About Singularity 
