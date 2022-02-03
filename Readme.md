@@ -396,7 +396,7 @@ singularity  exec  {image sif file} cp -r {folder you wants to copy} {absolute p
 ```
 Then bind this writable folder to the folder in container
 
-For the data you wants to use as input file, you can also place these files in a folder and bind to the container (notice: the folder made by you neccessary to exist in the container)
+For the data you wants to use as input file, you can also place these files in a folder and bind to the container (notice: the folder made by you is not neccessary to be already existed in the container)
 
 You have two different methods can bind folders to container
 
