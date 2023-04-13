@@ -23,15 +23,38 @@ ssh {username}@gadi.nci.org.au
 
 #### Step 3 Set up your home 
 
-Each user only have 1 gb space in their home folder, so install a miniconda (looks like already increase to 10 gb)
+### (Note: since we are using shared conda environment now, this step has been changed)
 
-https://docs.conda.io/en/latest/miniconda.html
-
+type 
 ```
-wget https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh
-
-bash Miniconda3-latest-Linux-x86_64.sh
+nano .bashrc 
 ```
+replace the end of the file like this (add the project id between /data/ and /miniconda/)
+:
+```
+# >>> conda initialize >>>
+# !! Contents within this block are managed by 'conda init' !!
+__conda_setup="$('/g/data/ /miniconda/bin/conda' 'shell.bash' 'hook' 2> /dev/null)"
+if [ $? -eq 0 ]; then
+    eval "$__conda_setup"
+else
+    if [ -f "/g/data/ /miniconda/etc/profile.d/conda.sh" ]; then
+        . "/g/data/ /miniconda/etc/profile.d/conda.sh"
+    else
+        export PATH="/g/data/ /miniconda/bin:$PATH"
+    fi
+fi
+unset __conda_setup
+# <<< conda initialize <<<
+unset SUDO_UID SUDO_GID SUDO_USER
+```
+And each time submit script which need to use conda, add these commands after PBS setting (add the project id between /data/ and /miniconda/)
+```
+set -xue
+source /g/data/ /miniconda/etc/profile.d/conda.sh
+conda activate {your env}
+```
+
 
 Make your own folder in gdata
 
@@ -135,8 +158,9 @@ module unload {module}/{module version}
 If you installed your modules in conda enviornment, you can use following codes to replcae 'modele load' and its relevant codes:
 
 ```
-source /home/106/{user_id}/miniconda3/etc/profile.d/conda.sh
-conda activate {env}
+set -xue
+source /g/data/ /miniconda/etc/profile.d/conda.sh
+conda activate {your env}
 ```
 
 #### Step 5 Submit your job
@@ -217,6 +241,7 @@ Remember: interactive jobs will stop once you log out from the login node, keep 
 #### What should I do if my home is full but I still need to create a new conda environment
 
 You can remove some environments you no longer need. You can run this to save these environment settings and create new environments with these config files when you need them.
+
 
 ```
 conda env export >{name you like}.yml
