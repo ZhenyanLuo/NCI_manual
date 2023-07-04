@@ -29,19 +29,19 @@ type
 ```
 nano .bashrc 
 ```
-replace the end of the file like this (add the project id between /data/ and /miniconda/)
+replace the end of the file like this (replace {project_id} with your project id)
 :
 ```
 # >>> conda initialize >>>
 # !! Contents within this block are managed by 'conda init' !!
-__conda_setup="$('/g/data/ /miniconda/bin/conda' 'shell.bash' 'hook' 2> /dev/null)"
+__conda_setup="$('/g/data/{project_id}/miniconda/bin/conda' 'shell.bash' 'hook' 2> /dev/null)"
 if [ $? -eq 0 ]; then
     eval "$__conda_setup"
 else
-    if [ -f "/g/data/ /miniconda/etc/profile.d/conda.sh" ]; then
-        . "/g/data/ /miniconda/etc/profile.d/conda.sh"
+    if [ -f "/g/data/{project_id}/miniconda/etc/profile.d/conda.sh" ]; then
+        . "/g/data/{project_id}/miniconda/etc/profile.d/conda.sh"
     else
-        export PATH="/g/data/ /miniconda/bin:$PATH"
+        export PATH="/g/data/{project_id}/miniconda/bin:$PATH"
     fi
 fi
 unset __conda_setup
