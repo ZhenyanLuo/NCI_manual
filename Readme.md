@@ -474,8 +474,8 @@ Here is the script of job (run_ipynb_job.sh):
 #PBS -P <project code>
 #PBS -q normal
 #PBS -l walltime=5:00:00
-#PBS -l ncpus=96
-#PBS -l mem=384GB
+#PBS -l ncpus=16
+#PBS -l mem=50GB
 #PBS -l jobfs=100GB
 #PBS -l storage=scratch/<project code>+gdata/<project code>
 module load pangeo/2021.01
